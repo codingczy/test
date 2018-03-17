@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video controls="" id="video">
+			<source src="src/朴树 - 平凡之路.mp4" type="video/mp4"></source>
+		</video>
+		
+		<canvas id="canvas" width="" height=""></canvas>
+	</body>
+	<script type="text/javascript">
+		
+		window.onload = function(){
+			var oV = document.getElementById('video');
+		
+			var oC = document.getElementById('canvas');
+			
+			var oGc = oC.getContext('2d');
+			
+			
+			oV.addEventListener("loadedmetadata", function(){
+				console.log(oV.videoHeight);
+				oC.width = this.videoWidth;
+				oC.height = this.videoHeight;
+				
+				setInterval(function(){
+					oGc.drawImage(oV,0,0);
+				},300)
+			}); 
+		}
+		
+	</script>
+</html>
